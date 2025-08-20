@@ -102,8 +102,9 @@ resource "aws_lambda_function" "s3_cleanup" {
 
   environment {
     variables = {
-      BUCKET_NAME    = aws_s3_bucket.logs_bucket.bucket
-      RETENTION_DAYS = var.retention_days
+      BUCKET_NAME       = aws_s3_bucket.logs_bucket.bucket
+      RETENTION_DAYS    = var.retention_days
+      MIN_FILE_SIZE_KB  = var.min_file_size_kb
     }
   }
 

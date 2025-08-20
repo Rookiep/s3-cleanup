@@ -1,12 +1,20 @@
+# S3 bucket name where logs will be stored
 variable "bucket_name" {
   description = "Name of the S3 bucket to store logs"
   type        = string
-  default     = "parthob" # change this to a unique bucket name!
+  default     = "practicepar" #  must be globally unique
 }
 
-# Number of days to retain logs before deletion
+# Retention policy (age in days)
 variable "retention_days" {
-  description = "Number of days to retain logs before cleanup"
+  description = "Delete objects older than this number of days"
   type        = number
   default     = 7
+}
+
+# Minimum file size for deletion (in KB)
+variable "min_file_size_kb" {
+  description = "Delete only objects larger than this size (in KB)"
+  type        = number
+  default     = 10
 }
